@@ -1,13 +1,13 @@
 import * as typeorm from 'typeorm';
 
 @typeorm.Entity()
-export class test {
+export class test1 {
   @typeorm.Column()
   name: string;
 
   @typeorm.Column()
   password: string;
 
-  @typeorm.Column()
+  @typeorm.PrimaryGeneratedColumn()
   id: number;
 }

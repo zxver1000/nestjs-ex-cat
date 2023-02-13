@@ -8,7 +8,7 @@ import { brotliDecompressSync } from 'zlib';
 export class AppController {
   constructor(
     private readonly appService: AppService,
-    private readonly CatsService: CatsService,
+
   ) {}
 
   @Get('hello/:id')
@@ -19,7 +19,7 @@ export class AppController {
   ): string {
     console.log(req);
     console.log(param);
-    console.log(this.CatsService.hi());
+  
     return this.appService.getHello();
   }
 }

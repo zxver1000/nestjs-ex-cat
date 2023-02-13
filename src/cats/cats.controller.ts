@@ -9,7 +9,7 @@ import {
   Param,
   ParseIntPipe,
 } from '@nestjs/common';
-
+import { test1 } from './entity/cats.entity';
 @Controller('cats')
 @UseFilters(HttpExceptionFilter)
 export class CatsController {
@@ -17,10 +17,12 @@ export class CatsController {
   constructor(private readonly CatsService: CatsService) {}
 
   @Get()
-  getAllCat(): string {
-    throw new HttpException('ss', 401);
-    return 'all cat';
+  getAllCat(): Promise<test1[]> {
+    //throw new HttpException('ss', 401);
+    console.log("hihi");
+    return this.CatsService.findall();
   }
+
 
   @Get(':id')
   findcat(@Param('id', ParseIntPipe) param: number): string {
